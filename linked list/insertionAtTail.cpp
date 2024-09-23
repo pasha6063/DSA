@@ -1,22 +1,32 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
-class Node{
-    public:
+class Node
+{
+public:
     int val;
-    Node* next;
+    Node *next;
     Node(int data)
     {
-        val=data;
-        next=NULL;
+        val = data;
+        next = NULL;
     }
 };
-void insertAtTail(Node* &head ,int val)
+void insertAtTail(Node *&head, int val)
 {
-    Node* newNode=new Node(val);
-    Node* temp=head;
-    while(temp==NULL)
+    Node *new_node = new Node(val);
+
+    if (head == NULL)
     {
-        temp=temp->next;
+        head = new_node;
+    }
+    else
+    {
+        Node *temp = head;
+        while (temp->next != NULL)
+        {
+            temp = temp->next;
+        }
+        temp->next = new_node;
     }
 }
 void display(Node *head)
@@ -31,11 +41,8 @@ void display(Node *head)
 }
 int main()
 {
-    Node* head=NULL;
-    insertAtTail(head,1);
-    insertAtTail(head,2);
-    insertAtTail(head,3);
+    Node *head = NULL;
+    insertAtTail(head, 3);
     display(head);
     return 0;
 }
-
