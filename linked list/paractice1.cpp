@@ -11,7 +11,11 @@ void insertionSort(int arr[], int n)
             arr[j + 1] = arr[j];
             j--;
         }
-        arr[j + 1] = key; 
+        arr[j + 1] = key;
+        cout << "Array after insertion" << key << ": ";
+        for (int k = 0; k < n; k++)
+            cout << arr[k] << " ";
+        cout << endl;
     }
 }
 void printArray(int arr[], int n)
